@@ -13,7 +13,7 @@ namespace bLOG.Web.Framework.Startup
 
     private static void RegisterHandlers()
     {
-      Routes.MapHttpHandlerRoute("Home", "123", "~/Handlers/HomeHandler.ashx");
+      Routes.MapHttpHandlerRoute("Home", "", "~/Handlers/HomeHandler.ashx");
     }
   }
 }
