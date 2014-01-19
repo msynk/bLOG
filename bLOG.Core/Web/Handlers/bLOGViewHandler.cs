@@ -19,7 +19,8 @@ namespace bLOG.Core.Web.Handlers
 
     #endregion
 
-    private static readonly bLOGViewEngine LayoutView = GetView(WebConfig.PathProvider.Layout);
+    private static readonly bLOGViewEngine LayoutView = GetView(WebConfig.PathProvider.LayoutView);
+    private static readonly bLOGViewEngine UnknownRequestView = GetView(WebConfig.PathProvider.UnknownRequestView);
 
     private static bLOGViewEngine GetView(string virtualPath)
     {
@@ -31,6 +32,20 @@ namespace bLOG.Core.Web.Handlers
     {
       return GetView(WebConfig.PathProvider.Get(ViewsFolder, viewName));
     }
+
+    protected object Route(string key)
+    {
+      return Context.Request.RequestContext.RouteData.Values[key];
+    }
+
+    protected string RenderUnknownRequest()
+    {
+      return UnknownRequestView.Render();
+    }
+
+    protected string Handler { get { return Route(WebConfig.HanlderRoute).ToString(); } }
+    protected string Action { get { return Route(WebConfig.ActionRoute).ToString(); } }
+    protected string Id { get { return Route(WebConfig.IdRoute).ToString(); } }
 
 
     protected abstract string ViewsFolder { get; }

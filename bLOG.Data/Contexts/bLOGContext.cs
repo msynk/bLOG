@@ -1,8 +1,8 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using bLOG.Data.Models.Mapping;
+using bLOG.Data.Mappings;
+using bLOG.Models;
 
-namespace bLOG.Data.Models
+namespace bLOG.Data.Contexts
 {
     public partial class bLOGContext : DbContext
     {

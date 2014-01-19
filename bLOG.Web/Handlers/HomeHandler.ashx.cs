@@ -15,11 +15,31 @@ namespace bLOG.Web.Handlers
 
     protected override string Render()
     {
+      switch (Action.ToUpper())
+      {
+        case "INDEX":
+          return Index();
+        default:
+          return RenderUnknownRequest();
+      }
+    }
+
+    public string Index()
+    {
+      var indexView = View("Index");
+      indexView.Add("Summaries", RenderSummaries());
+      return indexView.Render();
+    }
+
+    private string RenderSummaries()
+    {
       var postSummaryView = View("PostSummary");
       var summaries = "";
-      foreach (var post in PostService.Instance.Get())
+      foreach (var post in PostService.Get())
       {
         postSummaryView.Reset();
+        postSummaryView.Add("Id", post.Id.ToString(CultureInfo.InvariantCulture));
+        postSummaryView.Add("Slug", post.Title.Replace(" ", "-"));
         postSummaryView.Add("Title", post.Title);
         postSummaryView.Add("Content", post.Content);
         postSummaryView.Add("PublishDate", post.PublishDate.ToString("D"));
@@ -28,6 +48,5 @@ namespace bLOG.Web.Handlers
       }
       return summaries;
     }
-
   }
 }

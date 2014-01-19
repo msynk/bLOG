@@ -38,19 +38,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Contents\Css\Site.css" />
     <Content Include="Handlers\HomeHandler.ashx" />
     <Content Include="Contents\fonts\BYEKAN.TTF" />
     <Content Include="Contents\fonts\BYekan.woff" />
+    <Content Include="Handlers\PostHandler.ashx" />
+    <Content Include="Handlers\UnknownRequestHandler.ashx" />
+    <Content Include="rsd.xml" />
+    <Content Include="Views\404.html" />
+    <Content Include="Views\Home\Index.html" />
+    <Content Include="Views\Post\Show.html" />
+    <Content Include="wlwmanifest.xml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -71,6 +82,14 @@
     <Compile Include="Handlers\HomeHandler.ashx.cs">
       <DependentUpon>HomeHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\PostHandler.ashx.cs">
+      <DependentUpon>PostHandler.ashx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Handlers\UnknownRequestHandler.ashx.cs">
+      <DependentUpon>UnknownRequestHandler.ashx</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +100,10 @@
     <ProjectReference Include="..\bLOG.Data\bLOG.Data.csproj">
       <Project>{63D32B3C-411C-4334-9494-2F4869761560}</Project>
       <Name>bLOG.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bLOG.Models\bLOG.Models.csproj">
+      <Project>{d9abe00d-e87f-418f-8e28-824b9d2def11}</Project>
+      <Name>bLOG.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\bLOG.Web.Framework\bLOG.Web.Framework.csproj">
       <Project>{6F5C3431-B9ED-49EE-AB58-CCA903FFE17E}</Project>
@@ -105,7 +128,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1125</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:35384/</IISUrl>
+          <IISUrl>http://localhost:1234/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

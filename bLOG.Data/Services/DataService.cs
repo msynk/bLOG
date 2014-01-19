@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using bLOG.Data.Models;
 
 namespace bLOG.Data.Services
 {
@@ -18,36 +17,36 @@ namespace bLOG.Data.Services
     public IQueryable<T> QueryForEdit { get { return Set.AsQueryable(); } }
 
 
-    public List<T> Get()
+    public static List<T> Get()
     {
       return Set.AsNoTracking().ToList();
     }
-    public List<T> Get(Func<T, bool> predicate)
+    public static List<T> Get(Func<T, bool> predicate)
     {
       return Set.AsNoTracking().Where(predicate).ToList();
     }
-    public List<T> GetForEdit()
+    public static List<T> GetForEdit()
     {
       return Set.ToList();
     }
-    public List<T> GetForEdit(Func<T, bool> predicate)
+    public static List<T> GetForEdit(Func<T, bool> predicate)
     {
       return Set.Where(predicate).ToList();
     }
 
-    public int Add(T entity)
+    public static int Add(T entity)
     {
       Set.Add(entity);
       return Context.SaveChanges();
     }
 
-    public int Edit(T entity)
+    public static int Edit(T entity)
     {
       Context.Entry(entity).State = EntityState.Modified;
       return Context.SaveChanges();
     }
 
-    public int Delete(T entity)
+    public static int Delete(T entity)
     {
       Context.Entry(entity).State = EntityState.Deleted;
       return Context.SaveChanges();

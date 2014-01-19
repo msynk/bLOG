@@ -11,13 +11,18 @@ namespace bLOG.Core.Web.ViewEngines
   {
     public string ViewsFolder { get; private set; }
     public string LayoutFileName { get; private set; }
+    public string NotFoundFileName { get; private set; }
 
     public string ViewsExtension { get; private set; }
-    public ViewPathProvider(string viewsFolder = WebConfig.DefaultViewsFolder, string layoutFileName = WebConfig.DefaultLayoutViewName, string viewsExtention = WebConfig.DefaultViewsExtention)
+    public ViewPathProvider(string viewsFolder = WebConfig.DefaultViewsFolder, 
+      string viewsExtention = WebConfig.DefaultViewsExtention,
+      string layoutFileName = WebConfig.DefaultLayoutViewName, 
+      string notFoundFileName = WebConfig.DefaultNotFoundViewName)
     {
       ViewsFolder = viewsFolder;
-      LayoutFileName = layoutFileName;
       ViewsExtension = viewsExtention;
+      LayoutFileName = layoutFileName;
+      NotFoundFileName = notFoundFileName;
     }
 
     private string GetFullName(string name)
@@ -25,7 +30,8 @@ namespace bLOG.Core.Web.ViewEngines
       return string.Format("{0}.{1}", name, ViewsExtension);
     }
 
-    public string Layout { get { return Path.Combine(ViewsFolder, GetFullName(LayoutFileName)); } }
+    public string LayoutView { get { return Path.Combine(ViewsFolder, GetFullName(LayoutFileName)); } }
+    public string UnknownRequestView { get { return Path.Combine(ViewsFolder, GetFullName(NotFoundFileName)); } }
 
     public string Get(string folder, string name)
     {

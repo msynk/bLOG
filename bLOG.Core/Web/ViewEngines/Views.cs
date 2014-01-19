@@ -27,11 +27,17 @@ namespace bLOG.Core.Web.ViewEngines
 
     private static void Add(string virtualPath)
     {
-      using (var reader = new StreamReader(HttpContext.Current.Server.MapPath(virtualPath)))
+      using (var reader = new StreamReader(HttpContext.Current.Server.MapPath(GetVirtualPath(virtualPath))))
       {
         ContentCache.Add(virtualPath, reader.ReadToEnd());
         EngineCache.Add(virtualPath, new bLOGViewEngine(virtualPath));
       }
+    }
+
+    private static string GetVirtualPath(string virtualPath)
+    {
+      const string starter = "~/";
+      return virtualPath.StartsWith(starter) ? virtualPath : starter + virtualPath;
     }
 
     public static string GetContent(string virtualPath)

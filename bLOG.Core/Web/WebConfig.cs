@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using bLOG.Core.Web.ViewEngines;
+﻿using bLOG.Core.Web.ViewEngines;
 
 namespace bLOG.Core.Web
 {
@@ -12,6 +7,12 @@ namespace bLOG.Core.Web
     public const string DefaultViewsFolder = "Views";
     public const string DefaultViewsExtention = "html";
     public const string DefaultLayoutViewName = "Layout";
+    public const string DefaultNotFoundViewName = "404";
+
+    public const string HanlderRoute = "handler";
+    public const string ActionRoute = "action";
+    public const string IdRoute = "id";
+
 
 
     public static ViewPathProvider PathProvider = new ViewPathProvider();
@@ -20,6 +21,9 @@ namespace bLOG.Core.Web
 
     public static string PageTitleToken = "PageTitle";
     public static string PageBodyToken = "PageBody";
+
+
     
+
   }
 }
