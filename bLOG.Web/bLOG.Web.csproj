@@ -47,7 +47,10 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contents\Css\Site.css" />
     <Content Include="Handlers\HomeHandler.ashx" />
+    <Content Include="Contents\fonts\BYEKAN.TTF" />
+    <Content Include="Contents\fonts\BYekan.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -71,6 +74,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\bLOG.Core\bLOG.Core.csproj">
+      <Project>{F3C28A3F-0D79-431C-B677-4C1113393BAD}</Project>
+      <Name>bLOG.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\bLOG.Data\bLOG.Data.csproj">
       <Project>{63D32B3C-411C-4334-9494-2F4869761560}</Project>
       <Name>bLOG.Data</Name>
@@ -79,6 +86,9 @@
       <Project>{6F5C3431-B9ED-49EE-AB58-CCA903FFE17E}</Project>
       <Name>bLOG.Web.Framework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contents\Js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

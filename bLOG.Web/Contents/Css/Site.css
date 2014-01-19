@@ -1,0 +1,62 @@
+﻿@font-face {
+  font-family: "BYekan";
+  src: url("../fonts/BYekan.woff");
+}
+
+body {
+  margin: 0;
+  direction: rtl;
+  background-color: white;
+}
+
+
+.container {
+  width: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  clear: both;
+  padding: 0 25px;
+}
+
+.header {
+  color: white;
+  height: 100px;
+  background-color: #643a92;
+}
+
+.siteTitle {
+  font-family: 'BYekan';
+  font-size: 50px;
+  font-weight: bold;
+}
+
+div.blog-wrapper {
+  font-family: 'BYekan';
+  color: black;
+  margin: 50px;
+  padding: 0 50px 50px 50px;
+  border-bottom: solid 1px #c8c8c8;
+}
+
+  div.blog-wrapper div.title {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 5px;
+  }
+
+  div.blog-wrapper span.publish-date {
+    color: gray;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  div.blog-wrapper span.views-count {
+    color: gray;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  div.blog-wrapper div.content {
+    padding: 20px 5px 5px 5px;
+    font-size: 12px;
+  }

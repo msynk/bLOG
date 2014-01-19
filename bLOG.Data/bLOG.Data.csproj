@@ -38,8 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\bLOGContext.cs" />
-    <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\Mapping\CommentMap.cs" />
     <Compile Include="Models\Mapping\PostMap.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

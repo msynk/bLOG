@@ -16,12 +16,10 @@ namespace bLOG.Data.Models
         {
         }
 
-        public DbSet<Comment> Comments { get; set; }
         public DbSet<Post> Posts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new CommentMap());
             modelBuilder.Configurations.Add(new PostMap());
         }
     }
