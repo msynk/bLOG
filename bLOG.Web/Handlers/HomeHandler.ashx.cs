@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 using bLOG.Core.Domain;
 using bLOG.Core.Web.Handlers;
 using bLOG.Data.Services;
@@ -35,13 +37,15 @@ namespace bLOG.Web.Handlers
     {
       var postSummaryView = View("PostSummary");
       var summaries = "";
-      foreach (var post in PostService.Get())
+      foreach (var post in PostService.Get().OrderByDescending(p => p.PublishDate))
       {
         postSummaryView.Reset();
         postSummaryView.Add("Id", post.Id.ToString(CultureInfo.InvariantCulture));
         postSummaryView.Add("Slug", post.Title.Replace(" ", "-"));
         postSummaryView.Add("Title", post.Title);
-        postSummaryView.Add("Content", post.Content);
+        var content = post.Content;
+        var index = content.IndexOf("<summary />", StringComparison.Ordinal);
+        postSummaryView.Add("Content", content.Substring(0, index > 0 ? index : 500) + "...");
         postSummaryView.Add("PublishDate", post.PublishDate.ToString("D"));
         postSummaryView.Add("ViewsCount", post.ViewsCount.ToString(CultureInfo.InvariantCulture));
         summaries += postSummaryView.Render();

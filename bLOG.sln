@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refrences", "Refrences", "{
 		lib\EntityFramework.6.1.dll = lib\EntityFramework.6.1.dll
 		lib\EntityFramework.dll = lib\EntityFramework.dll
 		lib\EntityFramework.SqlServer.dll = lib\EntityFramework.SqlServer.dll
+		wlw.txt = wlw.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Models", "bLOG.Models\bLOG.Models.csproj", "{D9ABE00D-E87F-418F-8E28-824B9D2DEF11}"

@@ -30,6 +30,15 @@ a:hover {
   color: white;
   height: 100px;
   background-color: #643a92;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footer {
+  color: white;
+  height: 100px;
+  background-color: #643a92;
 }
 
 .siteTitle {
@@ -43,7 +52,7 @@ div.blog-wrapper {
   font-family: 'BYekan';
   color: black;
   margin: 50px;
-  padding: 0 50px 50px 50px;
+  padding-bottom: 50px;
   border-bottom: solid 1px #c8c8c8;
 }
 
