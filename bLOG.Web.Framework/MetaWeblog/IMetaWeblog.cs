@@ -1,4 +1,5 @@
 ﻿using bLOG.Models;
+using bLOG.Web.Framework.MetaWeblog.Entities;
 using CookComputing.XmlRpc;
 
 namespace bLOG.Web.Framework.MetaWeblog
@@ -8,10 +9,10 @@ namespace bLOG.Web.Framework.MetaWeblog
     #region MetaWeblog API
 
     [XmlRpcMethod("metaWeblog.newPost")]
-    string AddPost(string blogid, string username, string password, Post post, bool publish);
+    string AddPost(string blogid, string username, string password, PostEntity post, bool publish);
 
     [XmlRpcMethod("metaWeblog.editPost")]
-    bool UpdatePost(string postid, string username, string password, Post post, bool publish);
+    bool UpdatePost(string postid, string username, string password, PostEntity post, bool publish);
 
     [XmlRpcMethod("metaWeblog.getPost")]
     object GetPost(string postid, string username, string password);

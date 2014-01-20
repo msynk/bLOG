@@ -15,11 +15,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refrences", "Refrences", "{
 	ProjectSection(SolutionItems) = preProject
 		lib\CookComputing.XmlRpcServerV2.dll = lib\CookComputing.XmlRpcServerV2.dll
 		lib\CookComputing.XmlRpcV2.dll = lib\CookComputing.XmlRpcV2.dll
+		lib\EntityFramework.5.0.dll = lib\EntityFramework.5.0.dll
+		lib\EntityFramework.6.1.dll = lib\EntityFramework.6.1.dll
 		lib\EntityFramework.dll = lib\EntityFramework.dll
 		lib\EntityFramework.SqlServer.dll = lib\EntityFramework.SqlServer.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Models", "bLOG.Models\bLOG.Models.csproj", "{D9ABE00D-E87F-418F-8E28-824B9D2DEF11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLite", "SQLite", "{3741F246-9310-4FA7-BF34-13E1C3B691A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x86", "x86", "{209C7BE9-57A1-4796-AC42-16924959D7EF}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Sqlite\x86\System.Data.SQLite.dll = lib\Sqlite\x86\System.Data.SQLite.dll
+		lib\Sqlite\x86\System.Data.SQLite.Linq.dll = lib\Sqlite\x86\System.Data.SQLite.Linq.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "x64", "x64", "{AB85EC16-9C83-47AD-A0DA-DA51984B0058}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Sqlite\x64\System.Data.SQLite.dll = lib\Sqlite\x64\System.Data.SQLite.dll
+		lib\Sqlite\x64\System.Data.SQLite.Linq.dll = lib\Sqlite\x64\System.Data.SQLite.Linq.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,5 +66,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3741F246-9310-4FA7-BF34-13E1C3B691A8} = {69694B0E-B42B-48F4-A659-B9CC08522C81}
+		{209C7BE9-57A1-4796-AC42-16924959D7EF} = {3741F246-9310-4FA7-BF34-13E1C3B691A8}
+		{AB85EC16-9C83-47AD-A0DA-DA51984B0058} = {3741F246-9310-4FA7-BF34-13E1C3B691A8}
 	EndGlobalSection
 EndGlobal

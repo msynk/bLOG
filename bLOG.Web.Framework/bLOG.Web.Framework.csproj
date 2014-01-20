@@ -42,6 +42,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MetaWeblog\Entities\PostEntity.cs" />
     <Compile Include="MetaWeblog\IMetaWeblog.cs" />
     <Compile Include="MetaWeblog\MediaObject.cs" />
     <Compile Include="MetaWeblog\MetaWeblogHandler.cs" />

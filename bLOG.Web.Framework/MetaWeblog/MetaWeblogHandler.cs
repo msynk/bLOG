@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web.Security;
+using bLOG.Web.Framework.MetaWeblog.Entities;
 using CookComputing.XmlRpc;
 using bLOG.Data.Services;
 using bLOG.Models;
@@ -12,17 +13,17 @@ namespace bLOG.Web.Framework.MetaWeblog
 {
   public class MetaWeblogHandler : XmlRpcService, IMetaWeblog
   {
-    string IMetaWeblog.AddPost(string blogid, string username, string password, Post post, bool publish)
+    string IMetaWeblog.AddPost(string blogid, string username, string password, PostEntity post, bool publish)
     {
       ValidateUser(username, password);
 
       post.IsPublished = publish;
-      PostService.Add(post);
+      PostService.Add(post.ToPost());
 
       return post.Id.ToString(CultureInfo.InvariantCulture);
     }
 
-    bool IMetaWeblog.UpdatePost(string postid, string username, string password, Post post, bool publish)
+    bool IMetaWeblog.UpdatePost(string postid, string username, string password, PostEntity post, bool publish)
     {
       ValidateUser(username, password);
 
