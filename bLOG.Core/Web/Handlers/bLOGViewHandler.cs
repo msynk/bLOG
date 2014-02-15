@@ -56,8 +56,9 @@ namespace bLOG.Core.Web.Handlers
     private string GenerateResponse()
     {
       LayoutView.Reset();
+      var body = Render();
       LayoutView.Add(WebConfig.PageTitleToken, PageTitle);
-      LayoutView.Add(WebConfig.PageBodyToken, Render());
+      LayoutView.Add(WebConfig.PageBodyToken, body);
 
       return LayoutView.Render();
     }

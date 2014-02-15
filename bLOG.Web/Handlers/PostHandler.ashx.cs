@@ -11,7 +11,8 @@ namespace bLOG.Web.Handlers
   public class PostHandler : bLOGViewHandler
   {
     protected override string ViewsFolder { get { return "Post"; } }
-    protected override string PageTitle { get { return "POST!"; } }
+    protected override string PageTitle { get { return _pageTitle; } }
+    private string _pageTitle = "POST!";
 
     protected override string Render()
     {
@@ -28,6 +29,10 @@ namespace bLOG.Web.Handlers
     {
       var post = PostService.Get(Id);
       if (post == null) return RenderUnknownRequest();
+
+      _pageTitle = post.Title;
+      post.ViewsCount += 1;
+      PostService.Edit(post);
 
       var postView = View("Show");
       postView.Reset();
