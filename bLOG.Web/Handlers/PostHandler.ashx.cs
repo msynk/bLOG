@@ -1,40 +1,47 @@
 ﻿using System.Globalization;
-using bLOG.Core.Domain;
 using bLOG.Core.Web.Handlers;
+using bLOG.Core.Web.ViewEngines;
 using bLOG.Data.Services;
+using bLOG.Models;
 
 namespace bLOG.Web.Handlers
 {
-  /// <summary>
-  /// Summary description for HomeHandler
-  /// </summary>
-  public class PostHandler : bLOGViewHandler
+  public class PostHandler : BaseHandler
   {
     protected override string ViewsFolder { get { return "Post"; } }
     protected override string PageTitle { get { return _pageTitle; } }
     private string _pageTitle = "POST!";
 
-    protected override string Render()
+    private struct Actions
+    {
+      public const string Show = "SHOW";
+    }
+
+    protected override IView ProcessRequestInternal()
     {
       switch (Action.ToUpper())
       {
-        case "SHOW":
-          return Show();
-        default:
-          return RenderUnknownRequest();
+        case Actions.Show:
+          return ShowPost();
       }
+      return null;
     }
 
-    private string Show()
+    private IView ShowPost()
     {
       var post = PostService.Get(Id);
-      if (post == null) return RenderUnknownRequest();
+      if (post == null) return null;
 
       _pageTitle = post.Title;
       post.ViewsCount += 1;
       PostService.Edit(post);
 
-      var postView = View("Show");
+      return Layout(GetPostView(post));
+    }
+
+    private IView GetPostView(Post post)
+    {
+      var postView = View(Actions.Show);
       postView.Reset();
       postView.Add("Id", post.Id.ToString(CultureInfo.InvariantCulture));
       postView.Add("Slug", post.Title.Replace(" ", "-"));
@@ -42,7 +49,7 @@ namespace bLOG.Web.Handlers
       postView.Add("Content", post.Content);
       postView.Add("PublishDate", post.PublishDate.ToString("D"));
       postView.Add("ViewsCount", post.ViewsCount.ToString(CultureInfo.InvariantCulture));
-      return postView.Render();
+      return postView;
     }
   }
 }

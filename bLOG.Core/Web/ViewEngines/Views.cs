@@ -6,8 +6,11 @@ namespace bLOG.Core.Web.ViewEngines
 {
   public static class Views
   {
+    public static readonly BasicViewEngine LayoutView = GetViewEngine(WebConfig.ViewPathProvider.LayoutViewPath);
+    public static readonly BasicViewEngine UnknownRequestView = GetViewEngine(WebConfig.ViewPathProvider.NotFoundViewPath);
+
     private static readonly Dictionary<string, string> ContentCache = new Dictionary<string, string>();
-    private static readonly Dictionary<string, bLOGViewEngine> EngineCache = new Dictionary<string, bLOGViewEngine>();
+    private static readonly Dictionary<string, BasicViewEngine> EngineCache = new Dictionary<string, BasicViewEngine>();
 
     public static void Reset()
     {
@@ -30,7 +33,7 @@ namespace bLOG.Core.Web.ViewEngines
       using (var reader = new StreamReader(HttpContext.Current.Server.MapPath(GetVirtualPath(virtualPath))))
       {
         ContentCache.Add(virtualPath, reader.ReadToEnd());
-        EngineCache.Add(virtualPath, new bLOGViewEngine(virtualPath));
+        EngineCache.Add(virtualPath, new BasicViewEngine(virtualPath));
       }
     }
 
@@ -46,10 +49,12 @@ namespace bLOG.Core.Web.ViewEngines
       return ContentCache[virtualPath];
     }
 
-    public static bLOGViewEngine GetViewEngine(string virtualPath)
+    public static BasicViewEngine GetViewEngine(string virtualPath)
     {
       if (!EngineCache.ContainsKey(virtualPath)) Register(virtualPath);
       return EngineCache[virtualPath];
     }
+
+
   }
 }

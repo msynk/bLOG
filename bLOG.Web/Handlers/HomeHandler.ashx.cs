@@ -3,34 +3,36 @@ using System.Globalization;
 using System.Linq;
 using bLOG.Core.Domain;
 using bLOG.Core.Web.Handlers;
+using bLOG.Core.Web.ViewEngines;
 using bLOG.Data.Services;
 
 namespace bLOG.Web.Handlers
 {
-  /// <summary>
-  /// Summary description for HomeHandler
-  /// </summary>
-  public class HomeHandler : bLOGViewHandler
+  public class HomeHandler : BaseHandler
   {
     protected override string ViewsFolder { get { return "Home"; } }
     protected override string PageTitle { get { return "bLOG HOME!"; } }
 
-    protected override string Render()
+    private struct Actions
+    {
+      public const string Index = "INDEX";
+    }
+
+    protected override IView ProcessRequestInternal()
     {
       switch (Action.ToUpper())
       {
-        case "INDEX":
+        case Actions.Index:
           return Index();
-        default:
-          return RenderUnknownRequest();
       }
+      return null;
     }
 
-    public string Index()
+    public IView Index()
     {
-      var indexView = View("Index");
+      var indexView = View(Actions.Index);
       indexView.Add("Summaries", RenderSummaries());
-      return indexView.Render();
+      return Layout(indexView);
     }
 
     private string RenderSummaries()

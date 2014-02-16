@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace bLOG.Core.Web.ViewEngines
 {
   public class ViewPathProvider
   {
+    public static ViewPathProvider Default = new ViewPathProvider();
+
     public string ViewsFolder { get; private set; }
     public string LayoutFileName { get; private set; }
     public string NotFoundFileName { get; private set; }
 
     public string ViewsExtension { get; private set; }
-    public ViewPathProvider(string viewsFolder = WebConfig.DefaultViewsFolder, 
-      string viewsExtention = WebConfig.DefaultViewsExtention,
-      string layoutFileName = WebConfig.DefaultLayoutViewName, 
-      string notFoundFileName = WebConfig.DefaultNotFoundViewName)
+
+    public ViewPathProvider(string viewsFolder = WebConfig.ViewsFolder, 
+                            string viewsExtention = WebConfig.ViewsExtention,
+                            string layoutFileName = WebConfig.LayoutViewName, 
+                            string notFoundFileName = WebConfig.NotFoundViewName)
     {
       ViewsFolder = viewsFolder;
       ViewsExtension = viewsExtention;
@@ -30,10 +28,11 @@ namespace bLOG.Core.Web.ViewEngines
       return string.Format("{0}.{1}", name, ViewsExtension);
     }
 
-    public string LayoutView { get { return Path.Combine(ViewsFolder, GetFullName(LayoutFileName)); } }
-    public string UnknownRequestView { get { return Path.Combine(ViewsFolder, GetFullName(NotFoundFileName)); } }
+    public string LayoutViewPath { get { return Path.Combine(ViewsFolder, GetFullName(LayoutFileName)); } }
 
-    public string Get(string folder, string name)
+    public string NotFoundViewPath { get { return Path.Combine(ViewsFolder, GetFullName(NotFoundFileName)); } }
+
+    public string GetPath(string folder, string name)
     {
       return Path.Combine(ViewsFolder, folder, GetFullName(name));
     }
