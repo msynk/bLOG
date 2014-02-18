@@ -54,7 +54,7 @@
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\bLOG.Core\bLOG.Core.csproj">
-      <Project>{F3C28A3F-0D79-431C-B677-4C1113393BAD}</Project>
+      <Project>{f3c28a3f-0d79-431c-b677-4c1113393bad}</Project>
       <Name>bLOG.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\bLOG.Data\bLOG.Data.csproj">
