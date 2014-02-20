@@ -14,8 +14,8 @@ namespace bLOG.Data.Services
 
     protected DataService() { }
 
-    public IQueryable<T> Query { get { return Set.AsNoTracking(); } }
-    public IQueryable<T> QueryForEdit { get { return Set.AsQueryable(); } }
+    public static IQueryable<T> Query { get { return Set.AsNoTracking(); } }
+    public static IQueryable<T> QueryForEdit { get { return Set.AsQueryable(); } }
 
 
     public static List<T> Get()

@@ -18,7 +18,7 @@ namespace bLOG.Web.Framework.Startup
       Routes.MapHttpHandlerRoute("Global",
         string.Format("{{{0}}}/{{{1}}}/{{{2}}}/{{*pathInfo}}", WebConfig.HanlderRoute, WebConfig.ActionRoute, WebConfig.IdRoute),
         string.Format("~/Handlers/{{{0}}}Handler.ashx", WebConfig.HanlderRoute),
-        new RouteValueDictionary { { WebConfig.HanlderRoute, "Home" }, { WebConfig.ActionRoute, "Index" }, { WebConfig.IdRoute, "" } });
+        new RouteValueDictionary { { WebConfig.HanlderRoute, "Home" }, { WebConfig.ActionRoute, "Index" }, { WebConfig.IdRoute, "1" } });
     }
   }
 }

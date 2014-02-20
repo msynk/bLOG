@@ -1,4 +1,6 @@
 ﻿using bLOG.Core.Web.ViewEngines;
+using System.Collections.Specialized;
+using System.Configuration;
 
 namespace bLOG.Core.Web
 {
@@ -20,5 +22,7 @@ namespace bLOG.Core.Web
 
 
     public static ViewPathProvider ViewPathProvider = ViewPathProvider.Default;
+
+    public static NameValueCollection AppSettings = ConfigurationManager.AppSettings;
   }
 }

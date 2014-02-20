@@ -5,6 +5,8 @@ using bLOG.Core.Domain;
 using bLOG.Core.Web.Handlers;
 using bLOG.Core.Web.ViewEngines;
 using bLOG.Data.Services;
+using System.Configuration;
+using bLOG.Core.Web;
 
 namespace bLOG.Web.Handlers
 {
@@ -38,8 +40,12 @@ namespace bLOG.Web.Handlers
     private string RenderSummaries()
     {
       var postSummaryView = View("PostSummary");
+      var pageSize = int.Parse(WebConfig.AppSettings["Index.PageSize"]);
+      var pageNumber = int.Parse(Id) - 1;
+      var posts = PostService.Query.Skip(pageNumber * pageSize).Take(pageSize).OrderByDescending(p => p.PublishDate);
+
       var summaries = "";
-      foreach (var post in PostService.Get().OrderByDescending(p => p.PublishDate))
+      foreach (var post in posts)
       {
         postSummaryView.Reset();
         postSummaryView.Add("Id", post.Id.ToString(CultureInfo.InvariantCulture));
