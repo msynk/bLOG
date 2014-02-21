@@ -42,13 +42,12 @@ namespace bLOG.Web.Handlers
     private IView GetPostView(Post post)
     {
       var postView = View(Actions.Show);
-      postView.Reset();
-      postView.Add("Id", post.Id.ToString(CultureInfo.InvariantCulture));
-      postView.Add("Slug", post.Title.Replace(" ", "-"));
-      postView.Add("Title", post.Title);
-      postView.Add("Content", post.Content);
-      postView.Add("PublishDate", post.PublishDate.ToString("D"));
-      postView.Add("ViewsCount", post.ViewsCount.ToString(CultureInfo.InvariantCulture));
+      postView.AddOrEdit("Id", post.Id.ToString(CultureInfo.InvariantCulture));
+      postView.AddOrEdit("Slug", post.Title.Replace(" ", "-"));
+      postView.AddOrEdit("Title", post.Title);
+      postView.AddOrEdit("Content", post.Content);
+      postView.AddOrEdit("PublishDate", post.PublishDate.ToString("D"));
+      postView.AddOrEdit("ViewsCount", post.ViewsCount.ToString(CultureInfo.InvariantCulture));
       return postView;
     }
   }

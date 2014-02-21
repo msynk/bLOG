@@ -1,5 +1,10 @@
-﻿<div class="container" style="margin-top: 100px;">
-  <div class="blog-wrapper" style="padding: 0 0 50px; font-family: byekan; font-size: 80px; font-weight: bold;">ســــلام</div>
-  @Summaries
+﻿<div class="container">
+  <div class="summaries">
+    <div class="blog-wrapper firstpage-title" style="display:@FirstPageTitleDisplay;">ســــلام</div>
+    @Summaries
+  </div>
+  <div class="paging">
+    <a class="paging-prev" href="/?p=@PrevPage" style="display: inline; visibility: @PrevVisibility;">&lt; قبلی</a>
+    <a class="paging-next" href="/?p=@NextPage" style="display: inline; visibility: @NextVisibility;">بعدی &gt;</a>
+  </div>
 </div>
-@Paging

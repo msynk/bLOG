@@ -13,9 +13,10 @@ a {
   text-decoration: none;
   color: #643a92;
 }
-a:hover {
-  text-decoration: underline;
-}
+
+  a:hover {
+    /*text-decoration: underline;*/
+  }
 
 
 .container {
@@ -35,10 +36,19 @@ a:hover {
   left: 0;
   right: 0;
 }
+
+.body {
+  margin: 100px 0 100px 0;
+}
+
 .footer {
   color: white;
   height: 100px;
   background-color: #643a92;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .siteTitle {
@@ -48,11 +58,19 @@ a:hover {
   color: white;
 }
 
+.firstpage-title {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.summaries {
+  
+}
+
 div.blog-wrapper {
   font-family: 'BYekan';
   color: black;
-  margin: 50px;
-  padding-bottom: 50px;
+  padding: 50px 0 50px 0;
   border-bottom: solid 1px #c8c8c8;
 }
 
@@ -60,7 +78,6 @@ div.blog-wrapper {
     font-size: 40px;
     font-weight: bold;
     margin: 5px;
-
   }
 
   div.blog-wrapper span.publish-date {
@@ -79,3 +96,23 @@ div.blog-wrapper {
     padding: 20px 5px 5px 5px;
     font-size: 12px;
   }
+
+.paging {
+  font-family: 'BYekan';
+  padding: 50px 0 20px 0;
+}
+
+.paging-prev {
+  background-color: #643a92;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.paging-next {
+  float: left;
+  background-color: #643a92;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}

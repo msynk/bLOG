@@ -7,7 +7,7 @@ namespace bLOG.Core.Web.ViewEngines
   public class BasicViewEngine : IView
   {
     private readonly string _virtualPath;
-    private readonly Dictionary<string, string> _replacements = new Dictionary<string, string>();
+    private readonly Dictionary<string, object> _replacements = new Dictionary<string, object>();
 
     public BasicViewEngine(string virtualPath)
     {
@@ -19,16 +19,23 @@ namespace bLOG.Core.Web.ViewEngines
       _replacements.Clear();
     }
 
-    public void Add(string token, string value)
+    public void AddOrEdit(string token, object value)
     {
-      _replacements.Add(token, value);
+      if (_replacements.ContainsKey(token))
+      {
+        _replacements[token] = value;
+      }
+      else
+      {
+        _replacements.Add(token, value);
+      }
     }
 
     public string Render()
     {
       return _replacements.Aggregate(Views.GetContent(_virtualPath),
         (current, replacement) =>
-          current.Replace(string.Format(WebConfig.ViewTokenFormat, replacement.Key), replacement.Value));
+          current.Replace(string.Format(WebConfig.ViewTokenFormat, replacement.Key), replacement.Value.ToString()));
     }
 
     public void Render(HttpContext context)

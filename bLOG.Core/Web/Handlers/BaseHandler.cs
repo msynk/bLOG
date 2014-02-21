@@ -32,19 +32,25 @@ namespace bLOG.Core.Web.Handlers
 
     protected BasicViewEngine View(string viewName)
     {
-      return Views.GetViewEngine(WebConfig.ViewPathProvider.GetPath(ViewsFolder, viewName));
+      var view = Views.GetViewEngine(WebConfig.ViewPathProvider.GetPath(ViewsFolder, viewName));
+      view.Reset();
+      return view;
     }
 
     protected object Route(string key)
     {
       return Context.Request.RequestContext.RouteData.Values[key];
     }
+    protected string Query(string name)
+    {
+      return Context.Request.QueryString[name];
+    }
 
     protected BasicViewEngine Layout(IView view)
     {
       var layoutView = Views.LayoutView;
-      layoutView.Add(WebConfig.PageTitleToken, PageTitle);
-      layoutView.Add(WebConfig.PageBodyToken, view.Render());
+      layoutView.AddOrEdit(WebConfig.PageTitleToken, PageTitle);
+      layoutView.AddOrEdit(WebConfig.PageBodyToken, view.Render());
 
       return layoutView;
     }

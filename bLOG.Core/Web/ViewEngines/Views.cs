@@ -6,11 +6,11 @@ namespace bLOG.Core.Web.ViewEngines
 {
   public static class Views
   {
-    public static readonly BasicViewEngine LayoutView = GetViewEngine(WebConfig.ViewPathProvider.LayoutViewPath);
-    public static readonly BasicViewEngine UnknownRequestView = GetViewEngine(WebConfig.ViewPathProvider.NotFoundViewPath);
-
     private static readonly Dictionary<string, string> ContentCache = new Dictionary<string, string>();
     private static readonly Dictionary<string, BasicViewEngine> EngineCache = new Dictionary<string, BasicViewEngine>();
+
+    public static readonly BasicViewEngine LayoutView = GetViewEngine(WebConfig.ViewPathProvider.LayoutViewPath);
+    public static readonly BasicViewEngine UnknownRequestView = GetViewEngine(WebConfig.ViewPathProvider.NotFoundViewPath);
 
     public static void Reset()
     {
