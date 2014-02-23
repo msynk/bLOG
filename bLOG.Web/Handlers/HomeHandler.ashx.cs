@@ -89,7 +89,9 @@ namespace bLOG.Web.Handlers
         postSummaryView.AddOrEdit("Title", post.Title);
         var content = post.Content;
         var index = content.IndexOf("<summary />", StringComparison.Ordinal);
-        postSummaryView.AddOrEdit("Content", content.Substring(0, index > 0 ? index : 500) + "...");
+        var length = content.Length;
+        index = index > 0 ? index : (length > 500 ? 500 : length);
+        postSummaryView.AddOrEdit("Content", content.Substring(0, index) + "...");
         postSummaryView.AddOrEdit("PublishDate", post.PublishDate.ToString("D"));
         postSummaryView.AddOrEdit("ViewsCount", post.ViewsCount);
         summaries += postSummaryView.Render();

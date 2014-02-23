@@ -1,6 +1,6 @@
 ﻿@font-face {
   font-family: "BYekan";
-  src: url("../fonts/BYekan.woff");
+  src: url("../fonts/BYekan.txt");
 }
 
 body {
@@ -45,10 +45,6 @@ a {
   color: white;
   height: 100px;
   background-color: #643a92;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .siteTitle {
@@ -115,4 +111,17 @@ div.blog-wrapper {
   color: white;
   padding: 5px;
   text-decoration: none;
+}
+
+.manage-index {
+  font-family: 'BYekan';
+}
+
+.manage-allposts {
+  font-family: 'BYekan';
+  margin-top: 150px;
+}
+
+.manage-allposts-header {
+  background-color: aqua;
 }

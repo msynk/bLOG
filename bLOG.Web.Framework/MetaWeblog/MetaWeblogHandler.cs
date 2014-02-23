@@ -118,9 +118,24 @@ namespace bLOG.Web.Framework.MetaWeblog
       };
     }
 
-    private void ValidateUser(string username, string password)
+
+    object[] IMetaWeblog.GetAllPosts(string username, string password)
     {
-      if (!FormsAuthentication.Authenticate(username, password))
+      ValidateUser(username, password);
+
+      return PostService.Query.Select(post => new
+      {
+        postid = post.Id,
+        title = post.Title,
+        description = post.Content,
+        dateCreated = post.PublishDate
+      }).Cast<object>().ToArray();
+    }
+
+
+    private static void ValidateUser(string username, string password)
+    {
+      if (!SecurityService.Authenticate(username, password))
       {
         throw new XmlRpcFaultException(0, "User is not valid!");
       }

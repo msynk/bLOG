@@ -5,7 +5,9 @@ namespace bLOG.Core.Web.Handlers
 {
   public abstract class BaseHandler : IHttpHandler
   {
-    protected HttpContext Context;
+    public HttpContext Context { get; private set; }
+    public HttpRequest Request { get { return Context == null ? null : Context.Request; } }
+    public HttpResponse Response { get { return Context == null ? null : Context.Response; } }
 
     #region IHttpHandler
 
@@ -39,11 +41,16 @@ namespace bLOG.Core.Web.Handlers
 
     protected object Route(string key)
     {
-      return Context.Request.RequestContext.RouteData.Values[key];
+      return Request.RequestContext.RouteData.Values[key];
     }
     protected string Query(string name)
     {
-      return Context.Request.QueryString[name];
+      return Request.QueryString[name];
+    }
+
+    protected string Param(string name)
+    {
+      return Request.Params[name];
     }
 
     protected BasicViewEngine Layout(IView view)

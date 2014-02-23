@@ -57,17 +57,24 @@
   <ItemGroup>
     <Content Include="Contents\Css\Code.css" />
     <Content Include="Contents\Css\Site.css" />
+    <Content Include="favicon2.ico" />
+    <Content Include="favicon.ico" />
     <Content Include="Handlers\HomeHandler.ashx" />
     <Content Include="Contents\fonts\BYEKAN.TTF" />
-    <Content Include="Contents\fonts\BYekan.woff" />
+    <Content Include="Contents\fonts\BYekan.txt" />
     <Content Include="Handlers\PostHandler.ashx" />
     <Content Include="Handlers\UnknownRequestHandler.ashx" />
     <Content Include="rsd.xml" />
     <Content Include="Views\404.html" />
     <Content Include="Views\Home\Index.html" />
+    <Content Include="Views\Manage\ConfirmDelete.html" />
+    <Content Include="Views\Manage\PostRow.html" />
+    <Content Include="Views\Manage\ShowAllPosts.html" />
+    <Content Include="Views\Manage\Index.html" />
     <Content Include="Views\Post\Show.html" />
     <Content Include="wlwmanifest.xml" />
     <Content Include="App_Data\bLOG.db" />
+    <Content Include="Handlers\ManageHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,6 +94,9 @@
     </Compile>
     <Compile Include="Handlers\HomeHandler.ashx.cs">
       <DependentUpon>HomeHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ManageHandler.ashx.cs">
+      <DependentUpon>ManageHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\PostHandler.ashx.cs">
       <DependentUpon>PostHandler.ashx</DependentUpon>

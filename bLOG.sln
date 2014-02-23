@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Infra", "bLOG.Infra\bL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Core", "bLOG.Core\bLOG.Core.csproj", "{F3C28A3F-0D79-431C-B677-4C1113393BAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Win", "bLOG.Win\bLOG.Win.csproj", "{3249096C-0D8C-407D-8119-2964805E5E99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{F3C28A3F-0D79-431C-B677-4C1113393BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3C28A3F-0D79-431C-B677-4C1113393BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3C28A3F-0D79-431C-B677-4C1113393BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3249096C-0D8C-407D-8119-2964805E5E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3249096C-0D8C-407D-8119-2964805E5E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3249096C-0D8C-407D-8119-2964805E5E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3249096C-0D8C-407D-8119-2964805E5E99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

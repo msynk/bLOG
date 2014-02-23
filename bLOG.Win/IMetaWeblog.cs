@@ -1,10 +1,10 @@
-﻿using bLOG.Models;
-using bLOG.Web.Framework.MetaWeblog.Entities;
+﻿using bLOG.Web.Framework.MetaWeblog;
 using CookComputing.XmlRpc;
 
-namespace bLOG.Web.Framework.MetaWeblog
+namespace bLOG.Win
 {
-  public interface IMetaWeblog
+  [XmlRpcUrl("http://localhost:1234/metaweblog")]
+  public interface IMetaWeblog : IXmlRpcProxy
   {
     #region MetaWeblog API
 
