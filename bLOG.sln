@@ -42,6 +42,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Core", "bLOG.Core\bLOG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bLOG.Win", "bLOG.Win\bLOG.Win.csproj", "{3249096C-0D8C-407D-8119-2964805E5E99}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{6050102D-4BBE-48E2-8B03-8396C09D831F}"
+	ProjectSection(SolutionItems) = preProject
+		doc\Edit in wlw.txt = doc\Edit in wlw.txt
+		doc\WLWDownloader.msi = doc\WLWDownloader.msi
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
