@@ -45,6 +45,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{6050102D-4BBE-48E2-8B03-8396C09D831F}"
 	ProjectSection(SolutionItems) = preProject
 		doc\Edit in wlw.txt = doc\Edit in wlw.txt
+		doc\rtl in wlw.png = doc\rtl in wlw.png
 		doc\WLWDownloader.msi = doc\WLWDownloader.msi
 	EndProjectSection
 EndProject
